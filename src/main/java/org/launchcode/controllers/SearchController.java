@@ -29,9 +29,10 @@ public class SearchController {
     public String displayJobs(Model model, @RequestParam String searchType, @RequestParam String searchTerm) {
 
         ArrayList<HashMap<String, String>> jobs;
-
+        // search all without searchterm
         if (searchTerm.equals("")){
             jobs = JobData.findAll();
+            // search all with searchterm
         } else if (searchType.equals("all")) {
             jobs = JobData.findByValue(searchTerm);
         } else{
